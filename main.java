@@ -9,10 +9,10 @@ public class main {
         st.add(new Student("nguyễn văn mạnh", 32, 5));
         st.add(new Student("he văn lô", 18, 9));
         st.add(new Student("vu van dung", 23, 10));
-        cau1(st);
-        cau2(st);
-        cau3();
-        _414.thirdMax(nums);
+//        cau1(st);
+//        cau2(st);
+        cau3(st);
+//        _414.thirdMax(nums);
 
     }
 
@@ -56,11 +56,22 @@ public class main {
             System.out.println(st.get(i).toString());
         }
     }
-    public static void cau3(){
-        System.out.println("");
-        System.out.println("----414----");
+    public static void cau3(ArrayList<Student>list) {
 
-    }
+        list.sort(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                String lName1 = o1.fullName.substring(o1.fullName.lastIndexOf(" ") + 1);
+                String lName2 = o2.fullName.substring(o2.fullName.lastIndexOf(" ") + 1);
+
+                return lName1.compareTo(lName2);
+            }
 
 
-}
+
+
+        });
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).toString());}
+
+    }}
